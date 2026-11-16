@@ -1,0 +1,119 @@
+openapi: 3.0.4
+info:
+  title: PDF to HTML
+  description: >-
+    PDF to HTML converts the pages of a PDF, uploaded or fetched from a URL,
+    into one self-contained HTML file that looks like the original: same layout,
+    embedded fonts and images, and real selectable text. Choose a page range,
+    unlock password-protected PDFs, or ask for text only; long documents are
+    converted in batches, with nextPage pointing to the next one.
+  termsOfService: https://apiverve.com/terms/
+  contact:
+    name: APIVerve Support
+    email: hello@apiverve.com
+    url: https://apiverve.com/contact
+  version: 1.0.0
+externalDocs:
+  description: Learn more about APIVerve
+  url: https://docs.apiverve.com?utm_source=openapi
+servers:
+  - url: https://api.apiverve.com/
+paths:
+  /v1/pdftohtml:
+    post:
+      summary: PDF to HTML
+      description: >-
+        Convert a range of pages of an uploaded PDF, or a PDF URL, to one
+        self-contained fixed-layout HTML file
+      operationId: pdftohtml
+      parameters:
+        - name: pages
+          in: query
+          schema:
+            type: string
+          required: false
+          description: >-
+            One page or range: 3, 2-7, or 5- for page 5 onwards. Each call
+            converts up to 10 pages (2 on the Free plan) from the start of the
+            range; nextPage says where to continue
+          example: 1-
+        - name: password
+          in: query
+          schema:
+            type: string
+          required: false
+          description: User or owner password of an encrypted PDF
+        - name: textOnly
+          in: query
+          schema:
+            type: boolean
+          required: false
+          description: >-
+            Leave out images and vector graphics and keep only the positioned
+            text in its fonts
+          example: false
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: status
+                  error:
+                    type: string
+                    description: error
+                  data:
+                    type: object
+                    description: data
+              example:
+                status: ok
+                error: null
+                data:
+                  htmlName: 7c1e4b9a-2f3d-4e8a-9b6c-5d0a1f2e3c4b.html
+                  pageCount: 14
+                  firstPage: 1
+                  lastPage: 10
+                  pagesConverted: 10
+                  nextPage: 11
+                  textOnly: false
+                  encrypted: false
+                  size: 1873402
+                  inline: false
+                  html: null
+                  expires: 1792400000000
+                  downloadURL: https://storage.googleapis.com/apiverve/APIData/pdftohtml/7c1e4b9a-2f3d-4e8a-9b6c-5d0a1f2e3c4b.html?GoogleAccessId=635500398038-compute%40developer.gserviceaccount.com&Expires=1792400000&Signature=SAMPLE
+        '401':
+          description: Your request was not authorized, or your API Key was invalid
+        '404':
+          description: Requested resource was not found
+        '500':
+          description: A server error has occurred, try again later
+      requestBody:
+        required: false
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                pdf:
+                  type: string
+                  format: binary
+                  description: 'File to upload (accepted: .pdf, max 10MB)'
+                  x-acceptedTypes:
+                    - .pdf
+                  x-maxSizeMB: 10
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+security:
+  - api_key: []
+sampleRequest:
+  pdf: https://raw.githubusercontent.com/mozilla/pdf.js/master/web/compressed.tracemonkey-pldi-09.pdf
+  pages: 1-

@@ -1,0 +1,270 @@
+# [PDF to HTML API](https://apiverve.com/marketplace/pdftohtml?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
+
+PDF to HTML converts the pages of a PDF, uploaded or fetched from a URL, into one self-contained HTML file that looks like the original: same layout, embedded fonts and images, and real selectable text. Choose a page range, unlock password-protected PDFs, or ask for text only; long documents are converted in batches, with nextPage pointing to the next one.
+
+The PDF to HTML API provides a simple, reliable way to integrate pdf to html functionality into your applications. Built for developers who need production-ready pdf to html capabilities without the complexity of building from scratch.
+
+**[View API Details →](https://apiverve.com/marketplace/pdftohtml?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)**
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/pdftohtml?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
+[![Method](https://img.shields.io/badge/Method-POST-blue.svg)](#)
+[![Platform](https://img.shields.io/badge/Platform-Multi--Platform-orange.svg)](#installation)
+
+**Available on:**
+[![npm](https://img.shields.io/badge/npm-CB3837?style=flat&logo=npm&logoColor=white)](https://www.npmjs.com/package/@apiverve/pdftohtml)
+[![NuGet](https://img.shields.io/badge/NuGet-004880?style=flat&logo=nuget&logoColor=white)](https://www.nuget.org/packages/APIVerve.API.PDFtoHTML)
+[![PyPI](https://img.shields.io/badge/PyPI-3776AB?style=flat&logo=python&logoColor=white)](https://pypi.org/project/apiverve-pdftohtml/)
+[![RubyGems](https://img.shields.io/badge/RubyGems-E9573F?style=flat&logo=rubygems&logoColor=white)](https://rubygems.org/gems/apiverve_pdftohtml)
+[![Packagist](https://img.shields.io/badge/Packagist-F28D1A?style=flat&logo=packagist&logoColor=white)](https://packagist.org/packages/apiverve/pdftohtml)
+[![Go](https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white)](#-go)
+[![Dart](https://img.shields.io/badge/Dart-0175C2?style=flat&logo=dart&logoColor=white)](https://pub.dev/packages/apiverve_pdftohtml)
+[![JitPack](https://img.shields.io/badge/JitPack-2E7D32?style=flat&logo=android&logoColor=white)](#-android-jitpack)
+
+---
+
+## Quick Start
+
+### Using JavaScript
+
+```javascript
+async function callPDFtoHTMLAPI() {
+    try {
+        const requestBody = {
+    "pdf": "https://raw.githubusercontent.com/mozilla/pdf.js/master/web/compressed.tracemonkey-pldi-09.pdf",
+    "pages": "1-"
+};
+
+        const response = await fetch('https://api.apiverve.com/v1/pdftohtml', {
+            method: 'POST',
+            headers: {
+                'x-api-key': 'YOUR_API_KEY_HERE',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+        });
+
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+callPDFtoHTMLAPI();
+```
+
+### Using cURL
+
+```bash
+curl -X POST "https://api.apiverve.com/v1/pdftohtml" \
+  -H "x-api-key: YOUR_API_KEY_HERE" \
+  -F "pdf=@/path/to/your-file"
+# Accepted formats: .pdf (max 10MB)
+```
+
+**Get your API key:** [https://apiverve.com](https://apiverve.com)
+
+**📁 For more examples, see the [examples folder](./examples/)**
+
+---
+
+## Installation
+
+Choose your preferred programming language:
+
+### 📦 NPM (JavaScript/Node.js)
+
+```bash
+npm install @apiverve/pdftohtml
+```
+
+[**View NPM Package →**](https://www.npmjs.com/package/@apiverve/pdftohtml) | [**Package Code →**](./npm/)
+
+---
+
+### 🔷 NuGet (.NET/C#)
+
+```bash
+dotnet add package APIVerve.API.PDFtoHTML
+```
+
+[**View NuGet Package →**](https://www.nuget.org/packages/APIVerve.API.PDFtoHTML) | [**Package Code →**](./nuget/)
+
+---
+
+### 🐍 Python (PyPI)
+
+```bash
+pip install apiverve-pdftohtml
+```
+
+[**View PyPI Package →**](https://pypi.org/project/apiverve-pdftohtml/) | [**Package Code →**](./python/)
+
+---
+
+### 💎 Ruby (RubyGems)
+
+```bash
+gem install apiverve_pdftohtml
+```
+
+[**View RubyGems Package →**](https://rubygems.org/gems/apiverve_pdftohtml) | [**Package Code →**](./ruby/)
+
+---
+
+### 🐘 PHP (Packagist)
+
+```bash
+composer require apiverve/pdftohtml
+```
+
+[**View Packagist Package →**](https://packagist.org/packages/apiverve/pdftohtml) | [**Package Code →**](./php/)
+
+---
+
+### 🎯 Dart (pub.dev)
+
+```bash
+dart pub add apiverve_pdftohtml
+```
+
+[**View pub.dev Package →**](https://pub.dev/packages/apiverve_pdftohtml) | [**Package Code →**](./dart/)
+
+---
+
+### 🤖 Android (JitPack)
+
+```gradle
+implementation 'com.github.apiverve:pdftohtml-api:1.0.0'
+```
+
+[**Package Code →**](./android/)
+
+---
+
+### 🐹 Go
+
+```bash
+go get github.com/apiverve/pdftohtml-api/go
+```
+
+[**Package Code →**](./go/)
+
+---
+
+## Why Use This API?
+
+| Feature | Benefit |
+|---------|---------|
+| **Multi-language SDKs** | Native packages for JavaScript, Python, C#, Go, and Android |
+| **Simple Integration** | Single API key authentication, consistent response format |
+| **Production Ready** | 99.9% uptime SLA, served from 24 global regions |
+| **Comprehensive Docs** | Full examples, OpenAPI spec, and dedicated support |
+
+---
+
+## Documentation
+
+- 🏠 **API Home:** [PDF to HTML API](https://apiverve.com/marketplace/pdftohtml?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
+- 📚 **API Reference:** [docs.apiverve.com/ref/pdftohtml](https://docs.apiverve.com/ref/pdftohtml)
+- 📖 **OpenAPI Spec:** [openapi.yaml](./openapi.yaml)
+- 💡 **Examples:** [examples/](./examples/)
+
+---
+
+## What Can You Build?
+
+The PDF to HTML API is commonly used for:
+
+- **Web Applications** - Add pdf to html features to your frontend or backend
+- **Mobile Apps** - Native SDKs for Android development
+- **Automation** - Integrate with n8n, Zapier, or custom workflows
+- **SaaS Products** - Enhance your product with pdf to html capabilities
+- **Data Pipelines** - Process and analyze data at scale
+
+---
+
+## API Reference
+
+### Authentication
+All requests require an API key in the header:
+```
+x-api-key: YOUR_API_KEY_HERE
+```
+
+Get your API key: [https://apiverve.com](https://apiverve.com)
+
+### Response Format
+
+Every APIVerve endpoint returns the same envelope — check `status`, then read `data`:
+
+```json
+{
+  "status": "ok",
+  "error": null,
+  "data": { ... }
+}
+```
+
+### Example Response
+
+A real response from the PDF to HTML API:
+
+```json
+{
+  "status": "ok",
+  "error": null,
+  "data": {
+    "htmlName": "7c1e4b9a-2f3d-4e8a-9b6c-5d0a1f2e3c4b.html",
+    "pageCount": 14,
+    "firstPage": 1,
+    "lastPage": 10,
+    "pagesConverted": 10,
+    "nextPage": 11,
+    "textOnly": false,
+    "encrypted": false,
+    "size": 1873402,
+    "inline": false,
+    "html": null,
+    "expires": 1792400000000,
+    "downloadURL": "https://storage.googleapis.com/apiverve/APIData/pdftohtml/7c1e4b9a-2f3d-4e8a-9b6c-5d0a1f2e3c4b.html?GoogleAccessId=635500398038-compute%40developer.gserviceaccount.com&Expires=1792400000&Signature=SAMPLE"
+  }
+}
+```
+
+---
+
+## Support & Community
+
+- 🏠 **API Home**: [PDF to HTML API](https://apiverve.com/marketplace/pdftohtml?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
+- 💬 **Support**: [https://apiverve.com/contact](https://apiverve.com/contact)
+- 🐛 **Issues**: [GitHub Issues](../../issues)
+- 📖 **Documentation**: [https://docs.apiverve.com](https://docs.apiverve.com)
+- 🌐 **Website**: [https://apiverve.com](https://apiverve.com)
+
+---
+
+## Contributing
+
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+---
+
+## Security
+
+For security concerns, please review our [Security Policy](SECURITY.md).
+
+---
+
+## License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Acknowledgments
+
+Built with ❤️ by [APIVerve](https://apiverve.com)
+
+Copyright © 2026 APIVerve. All rights reserved.
