@@ -1,0 +1,16 @@
+name: apiverve_pdftohtml
+description: "PDF to HTML converts the pages of a PDF, uploaded or fetched from a URL, into one self-contained HTML file that looks like the original: same layout, embedded fonts and images, and real selectable text. Choose a page range, unlock password-protected PDFs, or ask for text only; long documents are converted in batches, with nextPage pointing to the next one."
+version: 1.2.6
+homepage: https://apiverve.com/marketplace/pdftohtml?utm_source=dart&utm_medium=referral&utm_content=homepage
+repository: https://github.com/apiverve/pdftohtml-api/tree/main/dart
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  http: ^1.1.0
+  http_parser: ^4.0.0
+
+dev_dependencies:
+  lints: ^3.0.0
+  test: ^1.24.0
